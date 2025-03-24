@@ -7,12 +7,12 @@ use App\Models\Player;
 
 class PlayerController extends Controller
 {
-    // Show all players
+
     public function index()
-    {
-        $players = Player::all();
-        return view('players.index', compact('players'));
-    }
+{
+    $players = Player::all(); // Pull all players from the DB
+    return view('players.index', compact('players'));
+}
 
     // Show form to create a new player
     public function create()

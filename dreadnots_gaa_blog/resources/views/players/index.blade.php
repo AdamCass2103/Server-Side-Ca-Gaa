@@ -18,10 +18,40 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($players as $player)
+        @extends('layouts.app')
+
+@section('content')
+    <h1>Dreadnots Players & Stats</h1>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Position</th>
+                <th>Goals</th>
+                <th>Points</th>
+                <th>Turnovers</th>
+                <th>Possession Won</th>
+                <th>Possession Lost</th>
+                <th>Kickouts Won</th>
+                <th>Kickouts Lost</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($players as $player)
                 <tr>
                     <td>{{ $player->name }}</td>
+                    <td>{{ $player->age }}</td>
                     <td>{{ $player->position }}</td>
+                    <td>{{ $player->goals }}</td>
+                    <td>{{ $player->points }}</td>
+                    <td>{{ $player->turnovers }}</td>
+                    <td>{{ $player->possession_won }}</td>
+                    <td>{{ $player->possession_lost }}</td>
+                    <td>{{ $player->kickouts_won }}</td>
+                    <td>{{ $player->kickouts_lost }}</td>
                     <td>
                         <a href="{{ route('players.show', $player->id) }}">View</a> |
                         <a href="{{ route('players.edit', $player->id) }}">Edit</a> |
@@ -33,6 +63,9 @@
                     </td>
                 </tr>
             @endforeach
+        </tbody>
+    </table>
+@endsection
         </tbody>
     </table>
 </body>

@@ -1,23 +1,21 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Dreadnots Blog</title>
-    @vite('resources/css/app.css')
+    <title>Dreadnots GAA Blog</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<body class="bg-gray-100 font-sans">
-    <header class="bg-red-600 p-4 text-white">
-        <h1 class="text-xl">Dreadnots GAA Blog</h1>
-    </header>
+<body>
+    <nav>
+        <a href="{{ route('home') }}">Home</a> |
+        <a href="{{ route('about') }}">About</a> |
+        <a href="{{ route('contact') }}">Contact</a> |
+        <a href="{{ route('players.index') }}">Players</a>
+    </nav>
 
-    <main class="p-6">
+    <div class="container">
         @yield('content')
-    </main>
-
-    <footer class="bg-gray-800 text-white p-4 text-center">
-        &copy; {{ date('Y') }} Dreadnots GAA
-    </footer>
+    </div>
 </body>
 </html>
