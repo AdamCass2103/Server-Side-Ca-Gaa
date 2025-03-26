@@ -13,6 +13,7 @@ Route::get('/contact', function () {
 })->name('contact');
 Route::resource('posts', PostController::class);
 Route::resource('players', PlayerController::class);
+Route::resource('posts', PostController::class)->middleware('auth');
 Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/', [PageController::class, 'home'])->name('home'); // Homepage

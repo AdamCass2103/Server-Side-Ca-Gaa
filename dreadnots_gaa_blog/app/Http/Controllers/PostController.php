@@ -22,17 +22,20 @@ class PostController extends Controller
 
     // Store a new post in the database
     public function store(Request $request)
-    {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required'
-        ]);
+{
+    $request->validate([
+        'title' => 'required',
+        'content' => 'required',
+    ]);
 
-        Post::create($request->all());
+    Post::create([
+        'title' => $request->title,
+        'content' => $request->content,
+        'user_id' => auth()->id(), // Set the currently authenticated user's ID
+    ]);
 
-        return redirect()->route('posts.index');
-    }
-
+    return redirect()->route('posts.index');
+}
     // Show a single post
     public function show(Post $post)
     {
